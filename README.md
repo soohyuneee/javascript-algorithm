@@ -1,1 +1,1 @@
-# learn-javascript-algorithm
+# javascript-algorithm-datastructure
