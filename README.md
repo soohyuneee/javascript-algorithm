@@ -1,1 +1,1 @@
-# javascript-algorithm-datastructure
+# javascript-algorithm
