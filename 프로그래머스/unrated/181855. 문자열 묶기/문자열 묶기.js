@@ -8,5 +8,5 @@ function solution(strArr) {
             answer[countArr[i]]++
         } 
     }
-    return Math.max(...Object.keys(answer).map(v => answer[v]))
+    return Object.values(answer).sort((a,b) => b-a)[0]
 }
