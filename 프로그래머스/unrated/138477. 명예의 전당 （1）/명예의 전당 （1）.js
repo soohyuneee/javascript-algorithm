@@ -1,17 +1,16 @@
 function solution(k, score) {
-  const honor = [];
-  const answer = [];
-
-    score.forEach((n) => {
-    honor.push(n);
-    honor.sort((a, b) => b - a);
-
-    if (honor.length >= k ) {
-      answer.push(honor[k - 1]);
-    } else {
-      answer.push(honor[honor.length - 1]);
-    }
-  });
-
-  return answer;
+    const stack = []
+    return score.reduce((a,c) => {
+        if(stack.length < k) {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+        }
+        else {
+            stack.push(c)
+            stack.sort((a,b) => a - b)
+            stack.shift()
+        }
+        a.push(stack[0])
+        return a
+    },[])
 }
