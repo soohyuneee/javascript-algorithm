@@ -1,13 +1,8 @@
 function solution(k, m, score) {
-    if(score.length < m){
-        return 0;
+    let answer = 0;
+    const sortedScore = score.slice().sort((a, b) => a - b).slice(score.length % m);
+    for (let i = 0; i < sortedScore.length; i += m) {
+        answer += sortedScore[i] * m;
     }
-    score.sort((a, b) => a - b);
-    let total = 0;
-    while(score.length >= m){
-        const box = score.splice(score.length - m, m);
-        const prize = m * Math.min(...box);
-        total += prize;
-    }
-    return total;
+    return answer;
 }
