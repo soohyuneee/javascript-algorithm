@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>졸업 선물</title>
+</head>
+
+<body>
+	<script>
+		function solution(m, product) {
+			let answer = 0;
+			let n = product.length;
+			product.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
+			// 1. 총 비용(상품과 배송비의 합)이 작은 순으로 정렬
+
+			for (let i = 0; i < n; i++) {
+				// 2. 모든 상품에 할인을 적용해 보기 위해 반복문 실행
+				let money = m - (product[i][0] / 2 + product[i][1]);
+				// 3. 인덱스에 해당하는 상품에 할인을 적용한 후 남은 금액을 변수에 할당
+				let cnt = 1;
+				// 4. 상품을 구입 가능 횟수 체크하기 위해 변수에 할당
+				for (let j = 0; j < n; j++) {
+					// 5. 정렬된 나머지 상품들을 남은 금액에서 차감하기 위해 반복문 실행 
+					if (j !== i && ((product[j][0] + product[j][1]) > money)) break;
+					// 6. 할인된 상품을 제외하고, 총 비용이 남은 금액을 초과하면 break
+					if (j !== i && ((product[j][0] + product[j][1]) <= money)) {
+						// 7. 할인된 상품을 제외하고, 총 비용이 남은 금액보다 작거나 같을 때,
+						// money 차감하고 구입 가능 횟수 증가
+						money -= (product[j][0] + product[j][1]);
+						cnt++;
+					}
+				}
+				answer = Math.max(answer, cnt);
+				// 8. 가장 큰 구입 가능 횟수를 answer에 할당
+			}
+
+			return answer;
+		}
+
+		let arr = [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+		console.log(solution(28, arr));
+	</script>
+</body>
+
+</html>
