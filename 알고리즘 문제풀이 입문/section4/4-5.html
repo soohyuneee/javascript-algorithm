@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>K번째 큰 수</title>
+</head>
+
+<body>
+	<script>
+		function solution(n, k, card) {
+			let answer;
+			let tmp = new Set();
+			// 1. 임시 변수에 중복 제거 위해 set 할당
+
+			for (let i = 0; i < n; i++) {
+				for (let j = i + 1; j < n; j++) {
+					for (let k = j + 1; k < n; k++) {
+						// 2. 카드를 3장 뽑기 때문에 3중 반복문 작성
+					}
+				}
+			}
+
+			return answer;
+		}
+
+		let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+		console.log(solution(10, 3, arr));
+	</script>
+</body>
+
+</html>
