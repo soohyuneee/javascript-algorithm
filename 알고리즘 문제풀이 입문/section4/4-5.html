@@ -16,10 +16,16 @@
 				for (let j = i + 1; j < n; j++) {
 					for (let k = j + 1; k < n; k++) {
 						// 2. 카드를 3장 뽑기 때문에 3중 반복문 작성
+						tmp.add(card[i] + card[j] + card[k]);
+						// 3. 카드 3장의 총 합을 임시 변수에 add  
 					}
 				}
 			}
 
+			let a = Array.from(tmp).sort((a, b) => b - a);
+			// 4. set은 sort 메서드 지원하지 않으므로, 배열화 후 내림차순 sort
+			answer = a[k - 1]
+			// 5. answer에 k번째 (인덱스는 k -1) 값 할당
 			return answer;
 		}
 
