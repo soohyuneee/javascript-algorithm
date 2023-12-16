@@ -11,11 +11,17 @@
 			let answer = 0, lt = 0, sum = 0;
 			for (let rt = 0; rt < arr.length; rt++) {
 				sum += arr[rt];
+				// 1. rt 값을 sum에 더함
 				if (sum === m) answer++;
+				// 2. rt 값을 더한 sum이 m을 만족하면, answer 카운트 증가
+				// 3. sum이 m보다 작다면, 계속 rt를 증가시키면서 그 값을 더함
 				while (sum >= m) {
 					sum -= arr[lt++];
+					// 4. sum이 m과 같거나 크면, lt를 증가시키면서 그 값을 빼줌
 					if (sum === m) answer++;
+					// 5. lt 값을 빼준 sum이 m을 만족하면, answer 카운트 증가
 				}
+				// 6. rt가 수열을 다 탐색하면 반복문 종료 
 			}
 			return answer;
 		}
