@@ -17,7 +17,7 @@
 				// 3. sum이 m보다 작다면, 계속 rt를 증가시키면서 그 값을 더함
 				while (sum >= m) {
 					sum -= arr[lt++];
-					// 4. sum이 m과 같거나 크면, lt를 증가시키면서 그 값을 빼줌
+					// 4. sum이 m과 같거나 크면, lt 값을 빼면서 lt를 증가시킴
 					if (sum === m) answer++;
 					// 5. lt 값을 빼준 sum이 m을 만족하면, answer 카운트 증가
 				}
