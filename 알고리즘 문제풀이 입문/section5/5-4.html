@@ -11,10 +11,14 @@
 			let answer = 0, lt = 0, sum = 0;
 			for (let rt = 0; rt < arr.length; rt++) {
 				sum += arr[rt];
+				// 1. rt 값을 sum에 더함
 				while (sum > m) {
 					sum -= arr[lt++];
+					// 2. sum이 m 보다 크다면, lt 값을 빼면서 lt를 증가시킴
 				}
 				answer += (rt - lt + 1);
+				// 3. sum이 m 이하 라면, 중복을 제외한 경우의 수를 answer에 더함
+				// 4. rt가 수열을 다 탐색하면 반복문 종료 
 			}
 			return answer;
 		}
