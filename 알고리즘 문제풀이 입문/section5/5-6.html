@@ -22,8 +22,11 @@
 			// 4. 최대값을 구하기 위한 변수를 가장 작은 값으로 초기화
 			for (let [key, val] of sH) {
 				if (val > max) {
+					// 5. val 값이 기존 max 보다 크다면, 
 					max = val;
+					// 6. max를 val로 변경하고
 					answer = key;
+					// 7. answer는 key로 변경함
 				}
 			}
 
