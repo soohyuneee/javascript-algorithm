@@ -9,6 +9,19 @@
 	<script>
 		function solution(s) {
 			let answer = "YES";
+			let stack = [];
+			for (let x of s) {
+				if (x === "(") stack.push(x);
+				// 1. x가 "(" 라면, 스택에 push
+				else {
+					if (stack.length === 0) return "NO";
+					// 2. x가 ")" 이지만 스택에 "(" 가 존재하지 않다면, return "NO"
+					stack.pop();
+					// 3. x가 ")" 이고 스택에 "(" 가 존재한다면, 스택에서 pop
+				}
+			}
+			if (stack.length > 0) return "NO";
+			// 4. 문자열을 탐색한 뒤에 스택에 괄호가 존재한다면, return "NO" 
 			return answer;
 		}
 
