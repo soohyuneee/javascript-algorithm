@@ -1,0 +1,31 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>괄호문자제거</title>
+</head>
+
+<body>
+	<script>
+		function solution(s) {
+			let answer;
+			let stack = [];
+			for (x of s) {
+				if (x === ')') {
+					while (stack.pop() !== '(');
+					// 1. x가 ')' 라면, 스택에서 '(' 를 만날 때 까지 pop
+				}
+				else stack.push(x);
+				// 2. x가 '(' 이거나 문자라면, 스택에 push
+				answer = stack.join('');
+				// 3. 스택에 있는 문자를 join하여 answer에 할당
+			}
+			return answer;
+		}
+
+		let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
+		console.log(solution(str));
+	</script>
+</body>
+
+</html>
