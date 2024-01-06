@@ -10,6 +10,22 @@
 		function solution(s) {
 			let answer;
 			let stack = [];
+			for (let x of s) {
+				if (!isNaN(x)) stack.push(Number(x));
+				// 1. x가 숫자라면, 스택에 x를 number로 치환 후 push
+				else {
+					let rt = stack.pop();
+					let lt = stack.pop();
+					// 2. x가 연산자라면, 두번 pop하여 rt와 lt에 할당
+					if (x === '+') stack.push(lt + rt);
+					else if (x === '-') stack.push(lt - rt);
+					else if (x === '*') stack.push(lt * rt);
+					else if (x === '/') stack.push(lt / rt);
+					// 3. 연산자와 일치하는 연산 결과를 스택에 push
+				}
+			}
+			answer = stack[0];
+			// 4. answer에 스택의 첫 번째 값을 할당
 			return answer;
 		}
 
