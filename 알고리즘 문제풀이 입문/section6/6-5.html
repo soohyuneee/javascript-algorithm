@@ -8,7 +8,23 @@
 <body>
 	<script>
 		function solution(s) {
-			let answer;
+			let answer = 0;
+			let stack = [];
+			for (let i = 0; i < s.length; i++) {
+				if (s[i] === '(') stack.push(s[i]);
+				// 1. s[i]가 '(' 라면, 스택에 push
+				else {
+					stack.pop()
+					// 2. s[i]가 ')' 일때, 레이저까지 카운팅 되는 것을 방지하고자
+					// 먼저 answer에 카운팅 하기 전에 스택에서 pop
+					if (s[i - 1] === '(') answer += stack.length;
+					// 3. 직전 문자가 '(' 라면, 레이저이므로
+					// 스택의 길이(막대기 수)를 answer에 누적
+					else answer++
+					// 4. 직전 문자가 ')' 라면, 막대기의 끝이므로 
+					// answer가 1(막대기의 마지막 조각) 증가
+				}
+			}
 			return answer;
 		}
 
