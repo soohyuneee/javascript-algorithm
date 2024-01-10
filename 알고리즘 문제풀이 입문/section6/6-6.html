@@ -1,0 +1,30 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>공주구하기</title>
+</head>
+
+<body>
+	<script>
+		function solution(n, k) {
+			let answer;
+			let queue = Array.from({length: n}, (v, i) => i + 1);
+			// 1. 1부터 시작하는 길이가 n인 큐 만들기
+			while (queue.length) {
+				// 2. 큐의 길이가 1일 때까지(0이면 멈춤) 반복문 실행
+				for (let i = 1; i < k; i++) queue.push(queue.shift());
+				// 3. 큐를 shift한 값을 다시 push하는 반복문을 k 이하(k-1까지) 실행
+				queue.shift();
+				// 4. 반복문이 끝나면 k번째 값이므로, 큐에서 shift 해주기 
+				if (queue.length === 1) answer = queue.shift();
+				// 5. 큐의 길이가 1이라면, 큐에서 shift한 값을 answer에 할당
+			}
+			return answer;
+		}
+
+		console.log(solution(8, 3));
+	</script>
+</body>
+
+</html>
