@@ -8,7 +8,19 @@
 <body>
 	<script>
 		function solution(arr) {
-			let answer;
+			let answer = arr;
+			// 1. 정렬된 배열을 answer로 리턴해줘야 하므로, arr을 얕은 복사
+			for (let i = 0; i < arr.length - 1; i++) {
+				// 2. 이중 for문으로 arr 탐색 시작
+				let idx = i;
+				// 3. idx를 i로 초기화(최소값의 인덱스를 할당하기 위한 변수)
+				for (let j = i + 1; j < arr.length; j++) {
+					if (arr[j] < arr[idx]) idx = j;
+					// 4. 최소값의 인덱스를 idx에 할당
+				}
+				[arr[i], arr[idx]] = [arr[idx], arr[i]];
+				// 5. arr의 idx(최소값 인덱스)와 i(오름차순 인덱스)의 값을 바꿔줌
+			}
 			return answer;
 		}
 
