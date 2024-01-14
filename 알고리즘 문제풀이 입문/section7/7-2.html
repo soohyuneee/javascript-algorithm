@@ -1,0 +1,29 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>버블정렬</title>
+</head>
+
+<body>
+	<script>
+		function solution(arr) {
+			let answer = arr;
+			for (let i = 0; i < arr.length - 1; i++) {
+				for (let j = 0; j < arr.length - i - 1; j++) {
+					// 1. i가 커질수록 범위가 작아지도록 이중 for문 작성
+					if (arr[j] > arr[j + 1]) {
+						[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+						// 2. 왼쪽 수가 더 크다면, 오른쪽 수와 자리 교체
+					}
+				}
+			}
+			return answer;
+		}
+
+		let arr = [13, 5, 11, 7, 23, 15];
+		console.log(solution(arr));
+	</script>
+</body>
+
+</html>
