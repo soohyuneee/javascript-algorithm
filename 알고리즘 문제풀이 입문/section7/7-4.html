@@ -13,13 +13,14 @@
 				let tmp = arr[i], j;
 				// 1. tmp 변수에 arr[i] 값을 복사, j 변수 선언
 				for (j = i - 1; j >= 0; j--) {
+					// 2. i-1부터 첫 번째 인덱스까지 탐색하는 이중 for문 작성
 					if (arr[j] > tmp) arr[j + 1] = arr[j];
-					// 2. arr[j] 값이 tmp 보다 크다면, 뒤에 arr[j] 값 복사
+					// 3. arr[j] 값이 tmp 보다 크다면, 뒤에 arr[j] 값 복사
 					else break;
-					// 3. arr[j] 값이 tmp 보다 작다면, break
+					// 4. arr[j] 값이 tmp 보다 작다면, 그 위치에서 break
 				}
 				arr[j + 1] = tmp;
-				// 4. arr[j] 값이 tmp 보다 작다면, 뒤에 tmp 값 복사
+				// 5. 멈춘 위치 뒤에 tmp 값 복사
 			}
 			return answer;
 		}
