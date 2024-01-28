@@ -18,16 +18,24 @@
 				// 4. x가 answer의 i번째에 있다면(hit), pos에 i를 저장
 				if (pos === -1) {
 					// 5. 위 반복문을 돌고도 pos가 -1이라면(miss),
+					// 6-1. x 값 unshift 하다가 answer가 size보다 커지면 pop
+					answer.unshift(x);
+					if (answer.length > size) answer.pop();
+					/* 6-2. answer를 맨 뒤에서 부터 하나씩 앞으로 당기기(삽입정렬)
 					for (let i = size - 1; i >= 1; i--) {
 						answer[i] = answer[i - 1];
-						// 6. answer를 맨 뒤에서 부터 하나씩 앞으로 당기고
 					}
+					 */
 				}
 				else {
+					// 7.1 hit가 났다면, pos 위치 값 지우고 x 값 unshift
+					answer.splice(pos, 1);
+					answer.unshift(x);
+					/* 7-2. pos 지점부터 하나씩 앞으로 당기기(삽입정렬)
 					for (let i = pos; i >= 1; i--) {
 						answer[i] = answer[i - 1];
-						// 7. hit가 났다면, pos 지점부터 하나씩 앞으로 당기고
 					}
+					*/
 				}
 				answer[0] = x;
 				// 8. answer의 맨 처음 값에는 x 할당하기
