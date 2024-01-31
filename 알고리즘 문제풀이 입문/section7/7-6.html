@@ -9,10 +9,20 @@
 	<script>
 		function solution(arr) {
 			let answer = [];
+			let sortArr = arr.slice();
+			// 1. arr을 깊은 복사
+			sortArr.sort((a, b) => a - b);
+			// 2. 깊은 복사한 arr을 오름차순 정렬
+			for (let i = 0; i < arr.length; i++) {
+				// 3. arr과 정렬한 arr을 비교하는 반복문 실행
+				if (arr[i] !== sortArr[i]) answer.push(i + 1);
+				// 4. arr[i]와 sortArr[i]가 다르다면, answer에 번호를 push
+			}
 			return answer;
 		}
 
 		let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+		// let arr = [120, 130, 150, 150, 130, 150];
 		console.log(solution(arr));
 	</script>
 </body>
