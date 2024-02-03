@@ -9,6 +9,13 @@
 	<script>
 		function solution(arr) {
 			let answer = arr;
+			// 1. arr 얕은 복사
+			arr.sort((a, b) => {
+				if (a[0] === b[0]) return a[1] - b[1];
+				// 2. 두 x좌표가 같다면, y좌표로 오름차순 정렬
+				else return a[0] - b[0];
+				// 3.  두 x좌표가 다르다면, x좌표로 오름차순 정렬
+			});
 			return answer;
 		}
 
