@@ -9,6 +9,24 @@
 	<script>
 		function solution(target, arr) {
 			let answer;
+			arr.sort((a, b) => a - b);
+			// 1. arr 오름차순 정렬
+			let lt = 0, rt = arr.length - 1;
+			// 2. 양 끝 인덱스로 lt와 rt 초기화
+			while (lt <= rt) {
+				// 3. rt가 lt보다 작거나 같을 때까지 탐색
+				let mid = parseInt((lt + rt) / 2);
+				// 4. 중간 인덱스로 mid 값 할당
+				if (arr[mid] === target) {
+					answer = mid + 1;
+					break;
+					// 5. 중간 값이 타겟이라면, answer에 해당 인덱스+1 할당하고 break 
+				}
+				else if (arr[mid] > target) rt = mid - 1;
+				// 6. 중간 값이 타겟보다 크다면, rt에 mid-1 할당
+				else lt = mid + 1;
+				// 7. 중간 값이 타겟보다 작다면, lt에 mid+1 할당
+			}
 			return answer;
 		}
 
