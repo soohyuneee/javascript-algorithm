@@ -8,11 +8,14 @@
 <body>
 	<script>
 		function count(songs, capacity) {
-
+			// 주어진 용량으로 몇 개의 노래를 담을 수 있는지 카운트하는 함수
 		}
 
 		function solution(m, songs) {
 			let answer;
+			let lt = Math.max(...songs);
+			let rt = songs.reduce((a, b) => a + b, 0);
+			// 1. songs의 최대값을 lt로, songs의 누적값을 rt로 초기화
 			return answer;
 		}
 
